@@ -204,7 +204,8 @@ void UdpToTcpForwarder::sendLoop() {
 
         UDP_TO_TCP_FORWARDER_LOG("connect success. fd=%d msg=%s\n", tcpSockfd, msg.c_str());
         int sentByte = send(tcpSockfd, msg.c_str(), msg.size(), 0);
-        std::cout << "[TCP] Sent: " << msg << "sentByte~" << sentByte <<  std::endl;
+
+        UDP_TO_TCP_FORWARDER_LOG("send success. sentByte=%d\n", sentByte);
         close(tcpSockfd);
         tcpSockfd = -1;
     }
